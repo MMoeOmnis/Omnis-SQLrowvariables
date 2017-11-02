@@ -1,0 +1,39 @@
+;  find the path to this library file and substitute our sqlite database 'sqlrow.db' for the libary file name
+Calculate lPath as sys(10)
+Calculate lPath as con(mid(lPath,1,len(lPath)-3),'db')
+
+;  ram 22/4/16 - no longer required for cocoa
+;  open a sqlite session 'SQLROW' to the sqlite database 'sqlrow.db'
+;  If sys(6)='X'     ;; sqlite requires posix path on osx
+;  Do FileOps.$converthfspathtoposixpath(lPath,lPath)
+;  End If
+
+Do iSessObj.$logon(lPath,'','','SQLROW') Returns #F
+If flag false
+	OK message  (Icon) {Could not locate 'sqlrow.db'.  Please ensure that 'sqlrow.db' is in the same directory as this example library and try again.}
+	Close library {[$clib().$name]}
+End If
+
+;  define the row variable as the schema class "Customer"
+Do iCustomer.$definefromsqlclass("Customer")
+Do iCustomer.$sessionobject.$assign(iSessObj)
+
+;  create initial select table
+Do iCustomer.$select()
+
+;  fetch the first line of data from the select table
+Do iCustomer.$fetch() Returns lStatus
+
+;  keep a copy of the original values of the row fetched to use as a parameter in $update() method
+Calculate iOldCustomer as iCustomer
+
+;  disable the "Logon" push button and enable others
+Do $cwind.$objs.Logon.$enabled.$assign(kFalse)
+Do $cwind.$objs.Logoff.$enabled.$assign(kTrue)
+Do $cwind.$objs.Next.$enabled.$assign(kTrue)
+Do $cwind.$objs.Clear.$enabled.$assign(kTrue)
+Do $cwind.$objs.Insert.$enabled.$assign(kTrue)
+Do $cwind.$objs.Update.$enabled.$assign(kTrue)
+Do $cwind.$objs.Delete.$enabled.$assign(kTrue)
+
+Do $cwind.$redraw()

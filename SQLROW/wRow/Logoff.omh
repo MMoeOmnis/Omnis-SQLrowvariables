@@ -1,0 +1,14 @@
+;  close the sqlite session 'SQLROW'
+Do iSessObj.$logoff()
+
+Do iCustomer.$clear() Returns lStatus
+Do $cwind.$redraw()
+
+;  enable the "Logon" push button and disable others
+Do $cwind.$objs.Logon.$enabled.$assign(kTrue)
+Do $cwind.$objs.Logoff.$enabled.$assign(kFalse)
+Do $cwind.$objs.Next.$enabled.$assign(kFalse)
+Do $cwind.$objs.Clear.$enabled.$assign(kFalse)
+Do $cwind.$objs.Insert.$enabled.$assign(kFalse)
+Do $cwind.$objs.Update.$enabled.$assign(kFalse)
+Do $cwind.$objs.Delete.$enabled.$assign(kFalse)

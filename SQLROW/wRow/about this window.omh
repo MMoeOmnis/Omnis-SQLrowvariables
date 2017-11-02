@@ -1,0 +1,12 @@
+;  About this window
+;
+;  This window demonstrates the use of a Row Variable, and its associated methods
+;  to add, edit and delete rows in a database.
+;
+;  To reference a row variable method, you use Row.$methodname.  For example to
+;  add the current contents of the Row variable to the database as a new record, you
+;  would execute:  Do Row.$insert().
+;
+;  One of the nice features of the row variable is that you can use each column as a
+;  separate data element on the window, by setting the $dataname property of a
+;  object to Row.Column.

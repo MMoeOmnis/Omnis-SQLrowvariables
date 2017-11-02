@@ -1,0 +1,2 @@
+;  update the row of data in the server table that matches the row variable 'iOldCustomer' with the changes in the row variable 'iCustomer'
+Do iCustomer.$update(iOldCustomer) Returns lStatus

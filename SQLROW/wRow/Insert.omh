@@ -1,0 +1,7 @@
+;  insert the row of data held in our row variable 'iCustomer' into the server table
+Calculate iCustomer.CustomerID as #NULL     ;; sqlite sequence
+
+Do iCustomer.$insert() Returns lStatus
+
+;  keep a copy of the original values of the row fetched to use as a parameter in $update() method
+Calculate iOldCustomer as iCustomer

@@ -1,0 +1,17 @@
+;  fetch the next row of data from the server into the row varaible 'iCustomer'
+Do iCustomer.$fetch() Returns lStatus
+
+;  the $fetch() method returns a status variable indicating the results of the operation
+;  the result can be kFetchError, kFetchOK, or kFetchFinished
+
+If lStatus<>kFetchOk
+	;  we've already got the last record, lets go to the beginning again
+	Do iCustomer.$select() Returns lStatus
+	Do iCustomer.$fetch() Returns lStatus
+End If
+
+;  keep a copy of the original values of the row fetched to use as a parameter in $update() method
+Calculate iOldCustomer as iCustomer
+
+;  redraw the window with the new values
+Do $cinst.$redraw()

@@ -1,0 +1,3 @@
+;  clear the row variable 'iCustomer'
+Do iCustomer.$clear() Returns lStatus
+Do $cinst.$redraw()

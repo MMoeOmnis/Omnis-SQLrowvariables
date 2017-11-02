@@ -1,0 +1,3 @@
+;  delete the row of data from the server table that matches that held in the row variable 'iCustomer'
+Do iCustomer.$delete() Returns lStatus
+Do method Next

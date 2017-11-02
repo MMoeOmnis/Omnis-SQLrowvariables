@@ -1,0 +1,30 @@
+{
+	"ident": 1100,
+	"order": 16393,
+	"objtype": "kText",
+	"properties": {
+		"align": "kLeftJst",
+		"backcolor": "kColor3DFace",
+		"backpattern": 15,
+		"designactive": true,
+		"edgefloat": "kEFrightBottom",
+		"fieldstyle": "CtrlLabel",
+		"font": 5,
+		"fontsize": 0,
+		"fontstyle": "kPlain",
+		"forecolor": "kColorForeFill",
+		"height": 72,
+		"left": 10,
+		"objlink": 0,
+		"text": {
+			"type": 14,
+			"calc": "Press the 'Logon' button to open a SQLite session and define the Row variable.  Try using the 'Next', 'Clear', 'Insert', 'Update' and 'Delete' buttons to discover how row variables work, to view the code executed context-click on the button."
+		},
+		"textcolor": "kColorWindowText",
+		"top": 10,
+		"userinfo": "",
+		"vertcentertext": false,
+		"visible": true,
+		"width": 351
+	}
+}
